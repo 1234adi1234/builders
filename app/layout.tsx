@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Bebas_Neue, Plus_Jakarta_Sans } from 'next/font/google';
 
+import { siteConfig } from '@/lib/seo/site';
 import { Providers } from '@/providers';
 
 const jakarta = Plus_Jakarta_Sans({
@@ -17,12 +18,54 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Boundless Builders',
-    template: '%s | Boundless Builders',
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    'Discover the builders, projects, and teams shipping on Boundless.',
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  keywords: [
+    'Stellar',
+    'builders',
+    'web3 projects',
+    'Boundless',
+    'developers',
+    'teams',
+  ],
+  openGraph: {
+    type: 'website',
+    siteName: siteConfig.name,
+    locale: 'en_US',
+    url: '/',
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: siteConfig.twitterHandle,
+    creator: siteConfig.twitterHandle,
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
