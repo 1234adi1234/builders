@@ -18,7 +18,9 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: URL.canParse(siteConfig.url)
+    ? new URL(siteConfig.url)
+    : undefined,
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -50,18 +52,6 @@ export const metadata: Metadata = {
     creator: siteConfig.twitterHandle,
     title: siteConfig.name,
     description: siteConfig.description,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
-  alternates: {
-    canonical: '/',
   },
   formatDetection: {
     telephone: false,

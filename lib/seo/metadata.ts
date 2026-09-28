@@ -22,14 +22,12 @@ export function buildPageMetadata({
       siteName: siteConfig.name,
       locale: 'en_US',
       url: path,
-      title,
       description,
     },
     twitter: {
       card: 'summary_large_image',
       site: siteConfig.twitterHandle,
       creator: siteConfig.twitterHandle,
-      title,
       description,
     },
   };

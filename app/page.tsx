@@ -11,6 +11,13 @@ import { SiteHeader } from '@/components/layout/site-header';
 import { HeroBackground } from '@/components/marketing/hero-background';
 import { Section } from '@/components/marketing/section';
 import { Button } from '@/components/ui/button';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function Home() {
   return (
