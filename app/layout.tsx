@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Plus_Jakarta_Sans } from 'next/font/google';
 
 import { JsonLd } from '@/components/seo/json-ld';
+import { sharedOpenGraph, sharedTwitter } from '@/lib/seo/metadata';
 import { organizationSchema, webSiteSchema } from '@/lib/seo/schema';
 import { siteConfig } from '@/lib/seo/site';
 import { Providers } from '@/providers';
@@ -41,16 +42,12 @@ export const metadata: Metadata = {
     'teams',
   ],
   openGraph: {
-    type: 'website',
-    siteName: siteConfig.name,
-    locale: siteConfig.locale,
+    ...sharedOpenGraph,
     title: siteConfig.name,
     description: siteConfig.description,
   },
   twitter: {
-    card: 'summary_large_image',
-    site: siteConfig.twitterHandle,
-    creator: siteConfig.twitterHandle,
+    ...sharedTwitter,
     title: siteConfig.name,
     description: siteConfig.description,
   },
