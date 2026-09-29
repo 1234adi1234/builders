@@ -4,10 +4,25 @@ import { WhyWeBuiltThis } from '@/components/about/why-we-built-this';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
 import { CtaBand } from '@/components/marketing/cta-band';
+import { JsonLd } from '@/components/seo/json-ld';
+import {
+  aboutPageSchema,
+  breadcrumbSchema,
+  homeBreadcrumb,
+} from '@/lib/seo/schema';
+
+const aboutSchema = aboutPageSchema();
+const aboutBreadcrumbs = breadcrumbSchema([
+  homeBreadcrumb,
+  { name: 'About', path: '/about' },
+]);
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={aboutSchema} />
+      <JsonLd data={aboutBreadcrumbs} />
+
       <SiteHeader />
       <AboutHero />
       <WhyWeBuiltThis />

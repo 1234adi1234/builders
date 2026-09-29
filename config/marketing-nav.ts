@@ -21,6 +21,9 @@ import {
   Trophy,
 } from 'lucide-react';
 
+/** Boundless on GitHub, shared by the header nav, footer, and SEO schemas. */
+export const githubUrl = 'https://github.com/boundlessfi';
+
 export interface NavItem {
   label: string;
   href: string;
@@ -118,7 +121,7 @@ export const headerMenus: NavGroup[] = [
       },
       {
         label: 'GitHub',
-        href: 'https://github.com/boundlessfi',
+        href: githubUrl,
         description: 'Explore our open source',
         icon: Terminal,
       },
@@ -153,7 +156,7 @@ export const footerColumns: NavGroup[] = [
       { label: 'API Reference', href: '/docs/api' },
       { label: 'FAQs', href: '/faq' },
       { label: 'Whitepaper', href: '/whitepaper' },
-      { label: 'GitHub', href: 'https://github.com/boundlessfi' },
+      { label: 'GitHub', href: githubUrl },
     ],
   },
   {

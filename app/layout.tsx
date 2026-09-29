@@ -3,6 +3,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Bebas_Neue, Plus_Jakarta_Sans } from 'next/font/google';
 
+import { JsonLd } from '@/components/seo/json-ld';
+import { organizationSchema, webSiteSchema } from '@/lib/seo/schema';
+import { siteConfig } from '@/lib/seo/site';
 import { Providers } from '@/providers';
 
 const jakarta = Plus_Jakarta_Sans({
@@ -18,11 +21,10 @@ const bebasNeue = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Boundless Builders',
-    template: '%s | Boundless Builders',
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    'Discover the builders, projects, and teams shipping on Boundless.',
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -37,6 +39,8 @@ export default function RootLayout({
       className={`${jakarta.variable} ${bebasNeue.variable} h-full antialiased`}
     >
       <body className='flex min-h-full flex-col'>
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={webSiteSchema()} />
         <Providers>{children}</Providers>
       </body>
     </html>
