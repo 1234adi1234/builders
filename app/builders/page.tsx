@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import {
@@ -8,6 +7,7 @@ import {
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
 import { JsonLd } from '@/components/seo/json-ld';
+import { buildPageMetadata } from '@/lib/seo/metadata';
 import {
   breadcrumbSchema,
   collectionPageSchema,
@@ -17,10 +17,11 @@ import {
 const BUILDERS_DESCRIPTION =
   'Discover people building across the Boundless ecosystem.';
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: 'Builders',
   description: BUILDERS_DESCRIPTION,
-};
+  path: '/builders',
+});
 
 const buildersSchema = collectionPageSchema({
   name: 'Builders',

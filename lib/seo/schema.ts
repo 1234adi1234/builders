@@ -168,13 +168,17 @@ export function collectionPageSchema({
   };
 }
 
-/** AboutPage schema for the about route. */
-export function aboutPageSchema(): AboutPageSchema {
+/** AboutPage schema for the about route. Pass the page's meta description. */
+export function aboutPageSchema({
+  description,
+}: {
+  description: string;
+}): AboutPageSchema {
   return {
     '@context': SCHEMA_CONTEXT,
     '@type': 'AboutPage',
     name: `About ${siteConfig.organizationName}`,
-    description: siteConfig.description,
+    description,
     url: absoluteUrl('/about'),
     isPartOf: webSiteReference(),
   };

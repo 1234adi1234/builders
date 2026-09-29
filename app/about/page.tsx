@@ -1,3 +1,4 @@
+import { buildPageMetadata } from '@/lib/seo/metadata';
 import { AboutHero } from '@/components/about/about-hero';
 import { WhatYoullFind } from '@/components/about/what-youll-find';
 import { WhyWeBuiltThis } from '@/components/about/why-we-built-this';
@@ -10,8 +11,18 @@ import {
   breadcrumbSchema,
   homeBreadcrumb,
 } from '@/lib/seo/schema';
+import { siteConfig } from '@/lib/seo/site';
 
-const aboutSchema = aboutPageSchema();
+const ABOUT_DESCRIPTION =
+  'Learn about Boundless Builders, a public showcase of people and products shipping on Stellar.';
+
+export const metadata = buildPageMetadata({
+  title: 'About',
+  description: ABOUT_DESCRIPTION,
+  path: '/about',
+});
+
+const aboutSchema = aboutPageSchema({ description: ABOUT_DESCRIPTION });
 const aboutBreadcrumbs = breadcrumbSchema([
   homeBreadcrumb,
   { name: 'About', path: '/about' },
@@ -32,9 +43,7 @@ export default function AboutPage() {
         description='Create your profile, join a team, and start shipping on Boundless. Your work belongs in the showcase.'
         action={{
           label: 'Get started on Boundless',
-          href:
-            process.env.NEXT_PUBLIC_BOUNDLESS_APP_URL ??
-            'https://boundlessfi.xyz',
+          href: siteConfig.parentUrl,
           external: true,
         }}
       />
