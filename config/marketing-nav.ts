@@ -187,7 +187,7 @@ export const socialLinks: SocialLink[] = [
   {
     key: 'x',
     label: '(formerly twitter)',
-    href: `https://x.com/${siteConfig.twitterHandle.slice(1)}`,
+    href: `https://x.com/${siteConfig.twitterHandle.replace(/^@/, '')}`,
   },
   { key: 'support', label: 'Support', href: '/support' },
 ];

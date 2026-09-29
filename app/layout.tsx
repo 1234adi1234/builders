@@ -18,9 +18,9 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: URL.canParse(siteConfig.url)
-    ? new URL(siteConfig.url)
-    : undefined,
+  // Throws on a malformed NEXT_PUBLIC_SITE_URL so a bad value fails the build
+  // instead of silently resolving every canonical to localhost.
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -41,8 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: siteConfig.name,
-    locale: 'en_US',
-    url: '/',
+    locale: siteConfig.locale,
     title: siteConfig.name,
     description: siteConfig.description,
   },

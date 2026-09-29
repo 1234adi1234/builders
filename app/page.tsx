@@ -13,9 +13,15 @@ import { Section } from '@/components/marketing/section';
 import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 
+import { indexableRobots } from '@/lib/seo/metadata';
+
 export const metadata: Metadata = {
+  robots: indexableRobots,
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    url: '/',
   },
 };
 

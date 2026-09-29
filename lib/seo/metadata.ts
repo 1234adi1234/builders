@@ -2,6 +2,22 @@ import type { Metadata } from 'next';
 
 import { siteConfig } from '@/lib/seo/site';
 
+/**
+ * Indexing directives for public pages. Applied per page rather than in the
+ * root layout so the built-in 404 page keeps its own `noindex` tag.
+ */
+export const indexableRobots: Metadata['robots'] = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
+};
+
 export function buildPageMetadata({
   title,
   description,
@@ -14,13 +30,14 @@ export function buildPageMetadata({
   return {
     title,
     description,
+    robots: indexableRobots,
     alternates: {
       canonical: path,
     },
     openGraph: {
       type: 'website',
       siteName: siteConfig.name,
-      locale: 'en_US',
+      locale: siteConfig.locale,
       url: path,
       description,
     },
