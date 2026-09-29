@@ -17,6 +17,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://builders.boundlessfi.xyz'),
   title: {
     default: 'Boundless Builders',
     template: '%s | Boundless Builders',
