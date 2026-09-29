@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -67,7 +67,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${jakarta.variable} ${bebasNeue.variable} h-full antialiased`}
     >
-      <body className='flex min-h-full flex-col'>
+      <body className='flex min-h-full flex-col' >
         <JsonLd data={organizationSchema()} />
         <JsonLd data={webSiteSchema()} />
         <Providers>{children}</Providers>
