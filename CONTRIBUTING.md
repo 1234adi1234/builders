@@ -158,7 +158,7 @@ import { BellIcon, BellBoldIcon } from '@/components/icons';
 ## Patterns and conventions
 
 - **Imports.** Use the `@/` path alias (`@/components/ui/button`, `@/lib/utils`).
-- **`cn()`.** Merge class names with `cn` from [`lib/utils`](./lib/utils.ts). It
+- **`cn()`**. Merge class names with `cn` from [`lib/utils`](./lib/utils.ts). It
   resolves Tailwind conflicts (last wins).
 - **Variants.** Build component variants with `class-variance-authority` (cva),
   following the pattern in `components/ui/button.tsx`.
@@ -184,6 +184,7 @@ ESLint owns linting; run `npm run lint`. The house conventions:
 
 - **Branch** off `main` with a descriptive name, for example
   `feat/builders-grid` or `fix/footer-blend`.
+- **Always ask to be assigned on an open issue** before starting work so effort is not duplicated.
 - **Commits** follow [Conventional Commits](https://www.conventionalcommits.org):
   `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`. Example:
   `feat(cards): add team card variant`.
@@ -195,6 +196,7 @@ ESLint owns linting; run `npm run lint`. The house conventions:
 
 Before you open a PR, confirm:
 
+- [ ] I asked to be assigned to the issue first.
 - [ ] I reused existing components and tokens where possible.
 - [ ] New UI follows [design.md](./design.md) (no stray hex, arbitrary sizes, or
       off-system spacing).
